@@ -30,6 +30,45 @@ if($prodi == 25) {
     echo "Sistem Informasi";
 }
 
+// include 
+echo "<hr>";
+require('mdp.halper.php');
+echo get_prodi($prodi);
 
 
+// array mahasiswa
+echo "<hr>";
+$mahasiswa = [
+        [
+            "npm" => 2226250098,
+            "nama" => "Reno"
+        ],
+        [
+            "npm" => 2226240099,
+            "nama" => "Dewa"
+        ],
+        
+    ];
+echo "<table class='table tablesw-striped table-hover'>
+   <thead>
+    <tr>  
+        <th> NPM </th>
+        <th> Nama </th>
+        <th> Program Studi </th>
+    </tr>
+    </thead>
+    <tbody>";
+    foreach($mahasiswa as $row){
+        echo "<tr>
+        <td> ".$row["npm"]."</td>
+        <td> ".$row["nama"]."</td>
+        <td> ".get_prodi(substr($row["npm"],4, 2))."</td>
+
+
+        </tr>";
+    };
+    echo "</tbody></table>";
+    echo "<hr>";
+
+ 
 ?>
